@@ -71,8 +71,7 @@ public class MainActivity extends AppCompatActivity {
     }
     public void onClick_btnAdd(View v)
     {
-        Intent intent = new Intent(this, add_product.class);
+        Intent intent = new Intent(this, add_prod.class);
         startActivity(intent);
     }
-
 }

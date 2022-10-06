@@ -1,28 +1,27 @@
 package com.example.supermarket;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
-import android.content.Intent;
-import android.util.Log;
 
-public class add_product extends AppCompatActivity {
+
+
+public class add_prod extends AppCompatActivity {
 
     Connection connection;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.add_product);
+        setContentView(R.layout.activity_add_prod);
     }
-
     public void onClickAdd(View v) {
         EditText Title = findViewById(R.id.et_Title);
         EditText Count = findViewById(R.id.et_Count);
