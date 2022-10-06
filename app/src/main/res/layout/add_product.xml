@@ -6,81 +6,69 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/add_header"
+        android:id= "@+id/tv_header"
+        android:layout_marginTop="30dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
         android:text="Новый продукт"
         android:textAlignment="center"
-        android:textSize="25sp"
+        android:textSize="20sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        />
 
-    <TextView
-        android:id="@+id/add_Title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+    <ImageView
+        android:id="@+id/Image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="18sp"
-        android:text="Название"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/btn_addPhoto"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header"
+        />
+
+    <android.widget.Button
+        android:id="@+id/btn_addPhoto"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="30dp"
+        android:text="Выбрать фото"
+        app:layout_constraintEnd_toStartOf="@+id/Photo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_header" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_header"
+        />
 
     <EditText
         android:id="@+id/et_Title"
         android:layout_width="0dp"
-        android:layout_height="25dp"
-        android:layout_marginLeft="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        app:layout_constraintStart_toEndOf="@+id/add_Title"
-        app:layout_constraintTop_toBottomOf="@+id/add_header" />
-
-
-    <TextView
-        android:id="@+id/add_Count"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
-        android:textSize="18sp"
-        android:text="Количество"
+        android:layout_marginEnd="30dp"
+        android:gravity="start|top"
+        android:hint="Название"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_Title" />
+        app:layout_constraintTop_toBottomOf="@+id/Image"
+        />
 
     <EditText
         android:id="@+id/et_Count"
         android:layout_width="0dp"
-        android:layout_height="25dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="30dp"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="32dp"
-        app:layout_constraintStart_toEndOf="@+id/add_Count"
-        app:layout_constraintTop_toBottomOf="@+id/et_Title" />
-
-
-    <ImageView
-        android:id="@+id/Photo"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginLeft="30dp"
+        android:layout_marginEnd="30dp"
+        android:gravity="start|top"
+        android:hint="Количество"
+        android:inputType="textMultiLine"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
-
-    <android.widget.Button
-        android:id="@+id/btn_addPhoto"
-        android:layout_width="140dp"
-        android:layout_height="35dp"
-        android:onClick="ChoosePhoto"
-        android:text="Добавить фото"
-        android:textSize="12sp"
-        android:layout_marginTop="130dp"
-        android:layout_marginLeft="40dp"
-        app:layout_constraintStart_toEndOf="@+id/Photo"
-        app:layout_constraintTop_toBottomOf="@+id/add_header" />
-
+        app:layout_constraintTop_toBottomOf="@+id/et_Title" />
 
     <android.widget.Button
         android:id="@+id/bt_add"
@@ -91,34 +79,23 @@
         android:onClick="add"
         android:text="Добавить"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/bt_clean"
+        app:layout_constraintEnd_toStartOf="@+id/bt_back"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
-
-    <android.widget.Button
-        android:id="@+id/bt_clean"
-        android:layout_width="130dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginBottom="30dp"
-        android:onClick="delete"
-        android:text="Очистить"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/bt_add"
-        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
 
     <android.widget.Button
         android:id="@+id/bt_back"
         android:layout_width="130dp"
         android:layout_height="35dp"
-        android:layout_marginTop="120dp"
-        android:layout_marginEnd="50dp"
+        android:layout_marginTop="10dp"
         android:layout_marginBottom="30dp"
         android:onClick="back"
         android:text="Назад"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
+        app:layout_constraintStart_toEndOf="@+id/bt_add"
+        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

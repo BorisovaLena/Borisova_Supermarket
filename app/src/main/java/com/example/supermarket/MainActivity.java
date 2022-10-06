@@ -69,5 +69,9 @@ public class MainActivity extends AppCompatActivity {
                 }
         enterMobile();
     }
-   
+    public void onClick_btnAdd(View v)
+    {
+        Intent intent = new Intent(this, add_product.class);
+        startActivity(intent);
+    }
 }
