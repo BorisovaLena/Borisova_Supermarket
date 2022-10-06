@@ -9,10 +9,10 @@
         android:id="@+id/add_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="50dp"
         android:text="Новый продукт"
         android:textAlignment="center"
-        android:textSize="20sp"
+        android:textSize="25sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -23,23 +23,102 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
+        android:layout_marginLeft="30dp"
+        android:textSize="18sp"
         android:text="Название"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_header" />
+
+    <EditText
+        android:id="@+id/et_Title"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintStart_toEndOf="@+id/add_Title"
+        app:layout_constraintTop_toBottomOf="@+id/add_header" />
+
 
     <TextView
         android:id="@+id/add_Count"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:layout_marginLeft="10dp"
-        android:textSize="16sp"
+        android:layout_marginLeft="30dp"
+        android:textSize="18sp"
         android:text="Количество"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/add_Title" />
 
+    <EditText
+        android:id="@+id/et_Count"
+        android:layout_width="0dp"
+        android:layout_height="25dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="32dp"
+        app:layout_constraintStart_toEndOf="@+id/add_Count"
+        app:layout_constraintTop_toBottomOf="@+id/et_Title" />
 
+
+    <ImageView
+        android:id="@+id/Photo"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
+
+    <android.widget.Button
+        android:id="@+id/btn_addPhoto"
+        android:layout_width="140dp"
+        android:layout_height="35dp"
+        android:onClick="ChoosePhoto"
+        android:text="Добавить фото"
+        android:textSize="12sp"
+        android:layout_marginTop="130dp"
+        android:layout_marginLeft="40dp"
+        app:layout_constraintStart_toEndOf="@+id/Photo"
+        app:layout_constraintTop_toBottomOf="@+id/add_header" />
+
+
+    <android.widget.Button
+        android:id="@+id/bt_add"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="add"
+        android:text="Добавить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/bt_clean"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
+
+    <android.widget.Button
+        android:id="@+id/bt_clean"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="delete"
+        android:text="Очистить"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/bt_add"
+        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
+
+    <android.widget.Button
+        android:id="@+id/bt_back"
+        android:layout_width="130dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="120dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginBottom="30dp"
+        android:onClick="back"
+        android:text="Назад"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/add_Count" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
