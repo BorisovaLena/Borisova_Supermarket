@@ -64,7 +64,7 @@
         android:layout_marginTop="50dp"
         android:text="Выбрать фото"
         android:layout_marginLeft="30dp"
-
+        android:background="@color/my_color"
         app:layout_constraintStart_toEndOf="@+id/Image_upd"
         app:layout_constraintTop_toBottomOf="@+id/et_Count_upd" />
 
@@ -76,6 +76,7 @@
         android:layout_marginTop="50dp"
         android:onClick="onClickUpdate"
         android:text="Изменить"
+        android:background="@color/my_color"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Image_upd" />
 
@@ -86,6 +87,7 @@
         android:layout_marginLeft="50dp"
         android:layout_marginTop="74dp"
         android:text="Удалить"
+        android:background="@color/my_color"
         app:layout_constraintStart_toEndOf="@+id/btn_updProd"
         app:layout_constraintTop_toBottomOf="@+id/btn_updImage" />
 

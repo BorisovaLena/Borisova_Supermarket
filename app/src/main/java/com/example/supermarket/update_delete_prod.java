@@ -67,4 +67,25 @@ public class update_delete_prod extends AppCompatActivity {
             Log.e("Error", ex.getMessage());
         }
     }
+
+    public void onClickDel(View v)
+    {
+        try {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connection = connectionHelper.connectionClass();
+            if (connection != null)
+            {
+                String str = "DELETE FROM Products WHERE ID = "+prod.getID()+"";
+                Statement statement = connection.createStatement();
+                Toast.makeText(this, "Успешное удаление записи!", Toast.LENGTH_LONG).show();
+                statement.executeUpdate(str);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+            }
+        }
+        catch (Exception ex)
+        {
+            Log.e("Error", ex.getMessage());
+        }
+    }
 }

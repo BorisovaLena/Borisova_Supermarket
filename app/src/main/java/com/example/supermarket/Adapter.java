@@ -38,13 +38,14 @@ public class Adapter extends BaseAdapter{
     }
 
     private Bitmap getUserImage(String encodedImg) {
-        if (encodedImg != null && !encodedImg.equals("null")) {
+        if(encodedImg!=null&& !encodedImg.equals("null")) {
             byte[] bytes = Base64.decode(encodedImg, Base64.DEFAULT);
             return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
-        } else
-            return null;
+        }
+        else {
+            return BitmapFactory.decodeResource(Adapter.this.mContext.getResources(), R.drawable.icon);
+        }
     }
-
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
         View v = View.inflate(mContext, R.layout.item_prod, null);

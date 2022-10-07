@@ -13,8 +13,6 @@ import java.sql.Connection;
 import java.sql.Statement;
 import android.widget.Toast;
 
-
-
 public class add_prod extends AppCompatActivity {
 
     Connection connection;
@@ -47,7 +45,7 @@ public class add_prod extends AppCompatActivity {
                     str = "INSERT INTO Products (Title, Count, Image) VALUES ('"+Title.getText() +"','"+Count.getText() + "','"+ Image+"')";
                 }
                 Statement statement = connection.createStatement();
-                Toast.makeText(this, "Успешное добавление!", Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Успешное добавление записи!", Toast.LENGTH_LONG).show();
                 statement.executeUpdate(str);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
