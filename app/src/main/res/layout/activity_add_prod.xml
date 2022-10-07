@@ -14,31 +14,12 @@
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
+        android:layout_marginTop="30dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageView
-        android:id="@+id/Image"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/btn_addPhoto"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header"
-        />
 
-    <android.widget.Button
-        android:id="@+id/btn_addPhoto"
-        android:layout_width="130dp"
-        android:layout_height="48dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginBottom="30dp"
-        android:text="Выбрать фото"
-        app:layout_constraintEnd_toStartOf="@+id/Image"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tv_header"
-        />
 
     <EditText
         android:id="@+id/et_Title"
@@ -52,7 +33,7 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Image"
+        app:layout_constraintTop_toBottomOf="@+id/tv_header"
         />
 
     <EditText
@@ -69,6 +50,36 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_Title" />
 
+    <ImageView
+        android:id="@+id/Image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="30dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
+
+    <android.widget.Button
+        android:id="@+id/btn_addPhoto"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="50dp"
+        android:text="Выбрать фото"
+        android:layout_marginLeft="30dp"
+
+        app:layout_constraintStart_toEndOf="@+id/Image"
+        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
+
+    <android.widget.Button
+        android:id="@+id/btn_addProd"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:hint="Добавить"
+        android:onClick="onClickAdd"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Image" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

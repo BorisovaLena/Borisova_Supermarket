@@ -2,6 +2,7 @@ package com.example.supermarket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.ImageView;
 
 import java.sql.Connection;
 import java.sql.Statement;
+import android.widget.Toast;
 
 
 
@@ -27,13 +29,13 @@ public class add_prod extends AppCompatActivity {
         EditText Count = findViewById(R.id.et_Count);
         ImageView Image = findViewById(R.id.Image);
 
-        ConnectionHelper connectionHelper = new ConnectionHelper();
-        connection = connectionHelper.connectionClass();
-
-        String str="";
-
         try
         {
+            ConnectionHelper connectionHelper = new ConnectionHelper();
+            connection = connectionHelper.connectionClass();
+
+            String str="";
+
             if (connection != null)
             {
                 if(Image==null)
@@ -45,7 +47,11 @@ public class add_prod extends AppCompatActivity {
                     str = "INSERT INTO Products (Title, Count, Image) VALUES ('"+Title.getText() +"','"+Count.getText() + "','"+ Image+"')";
                 }
                 Statement statement = connection.createStatement();
+                Toast.makeText(this, "Успешное добавление!", Toast.LENGTH_LONG).show();
                 statement.executeUpdate(str);
+                Intent intent = new Intent(this, MainActivity.class);
+                startActivity(intent);
+
             }
         }
         catch (Exception ex)
