@@ -1,6 +1,7 @@
 package com.example.supermarket;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.util.Base64;
@@ -58,6 +59,14 @@ public class Adapter extends BaseAdapter{
 
         Image.setImageBitmap(getUserImage(prod.getImage()));
 
+        v.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(mContext,update_delete_prod.class);
+                intent.putExtra("Products",prod);
+                mContext.startActivity(intent);
+            }
+        });
         return v;
 
     }

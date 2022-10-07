@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".add_prod">
+    tools:context=".update_delete_prod">
 
     <TextView
         android:id="@+id/tv_header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Новый продукт"
+        android:text="Продукт"
         android:textAlignment="center"
         android:textSize="20sp"
         android:textStyle="bold"
@@ -19,10 +19,8 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
-
     <EditText
-        android:id="@+id/et_Title"
+        android:id="@+id/et_Title_upd"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -37,7 +35,7 @@
         />
 
     <EditText
-        android:id="@+id/et_Count"
+        android:id="@+id/et_Count_upd"
         android:layout_width="0dp"
         android:layout_height="50dp"
         android:layout_marginStart="30dp"
@@ -48,38 +46,47 @@
         android:inputType="textMultiLine"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Title" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Title_upd" />
 
     <ImageView
-        android:id="@+id/Image"
+        android:id="@+id/Image_upd"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginTop="20dp"
         android:layout_marginLeft="30dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
+        app:layout_constraintTop_toBottomOf="@+id/et_Count_upd" />
 
     <android.widget.Button
-        android:id="@+id/btn_addImage"
+        android:id="@+id/btn_updImage"
         android:layout_width="150dp"
         android:layout_height="48dp"
         android:layout_marginTop="50dp"
         android:text="Выбрать фото"
         android:layout_marginLeft="30dp"
 
-        app:layout_constraintStart_toEndOf="@+id/Image"
-        app:layout_constraintTop_toBottomOf="@+id/et_Count" />
+        app:layout_constraintStart_toEndOf="@+id/Image_upd"
+        app:layout_constraintTop_toBottomOf="@+id/et_Count_upd" />
 
     <android.widget.Button
-        android:id="@+id/btn_addProd"
+        android:id="@+id/btn_updProd"
         android:layout_width="130dp"
         android:layout_height="48dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="50dp"
-        android:hint="Добавить"
-        android:onClick="onClickAdd"
+        android:onClick="onClickUpdate"
+        android:text="Изменить"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/Image" />
+        app:layout_constraintTop_toBottomOf="@+id/Image_upd" />
 
+    <android.widget.Button
+        android:id="@+id/btn_delProd"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="74dp"
+        android:text="Удалить"
+        app:layout_constraintStart_toEndOf="@+id/btn_updProd"
+        app:layout_constraintTop_toBottomOf="@+id/btn_updImage" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

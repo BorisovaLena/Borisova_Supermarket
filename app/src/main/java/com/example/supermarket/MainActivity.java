@@ -74,4 +74,6 @@ public class MainActivity extends AppCompatActivity {
         Intent intent = new Intent(this, add_prod.class);
         startActivity(intent);
     }
+
+
 }

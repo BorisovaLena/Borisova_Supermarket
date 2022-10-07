@@ -5,9 +5,10 @@
       <map>
         <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/activity_add_prod.xml" value="0.25271739130434784" />
         <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/activity_update_delete_prod.xml" value="0.264" />
         <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/add_product.xml" value="0.2" />
         <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/addprod.xml" value="0.25416666666666665" />
-        <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/item_prod.xml" value="0.1" />
+        <entry key="..\:/Users/Acer/Desktop/supermarket-master/app/src/main/res/layout/item_prod.xml" value="0.2" />
       </map>
     </option>
   </component>

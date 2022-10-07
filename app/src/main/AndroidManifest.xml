@@ -13,6 +13,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Supermarket">
         <activity
+            android:name=".update_delete_prod"
+            android:exported="false" />
+        <activity
             android:name=".add_prod"
             android:exported="false" />
         <activity

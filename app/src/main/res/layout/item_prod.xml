@@ -33,12 +33,13 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_Title"  />
 
     <android.widget.Button
-        android:id="@+id/bt_add"
+        android:id="@+id/btnUpd"
         android:layout_width="110dp"
-        android:layout_height="35dp"
+        android:layout_height="48dp"
         android:layout_marginTop="10dp"
+        android:onClick="onClickbtnUpd"
         android:text="Перейти"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/Img"
-        app:layout_constraintTop_toBottomOf="@+id/tv_Count"  />
+        app:layout_constraintTop_toBottomOf="@+id/tv_Count" />
 </androidx.constraintlayout.widget.ConstraintLayout>
