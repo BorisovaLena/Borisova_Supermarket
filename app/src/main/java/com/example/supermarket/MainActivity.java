@@ -2,6 +2,7 @@ package com.example.supermarket;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -21,7 +22,7 @@ public class MainActivity extends AppCompatActivity {
     View v;
     ListView listView;
     Adapter pAdapter;
-
+    Context nContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

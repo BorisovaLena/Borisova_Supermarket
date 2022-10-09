@@ -86,8 +86,9 @@
         android:layout_height="48dp"
         android:layout_marginLeft="50dp"
         android:layout_marginTop="74dp"
-        android:text="Удалить"
         android:background="@color/my_color"
+        android:onClick="onClickDel"
+        android:text="Удалить"
         app:layout_constraintStart_toEndOf="@+id/btn_updProd"
         app:layout_constraintTop_toBottomOf="@+id/btn_updImage" />
 

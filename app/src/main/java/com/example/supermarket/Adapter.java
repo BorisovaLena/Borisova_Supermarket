@@ -1,22 +1,44 @@
 package com.example.supermarket;
 
+import android.annotation.SuppressLint;
+import android.content.ContentResolver;
+import android.content.ContentUris;
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.provider.ContactsContract;
 import android.util.Base64;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends BaseAdapter{
-    private Context mContext;
 
-    public Adapter(Context mContext, List<Product> prodList) {
-        this.mContext = mContext;
+    protected Context Context;
+    String img="";
+    private ArrayList<Product> mListProd;
+
+    private OnItemClickListener mListener;
+
+    public interface OnItemClickListener{
+        void onItemClick(int position);
+    }
+    public void setOnItemClickListener(OnItemClickListener listener)
+    {
+        mListener=listener;
+    }
+
+    public Adapter(Context Context, List<Product> prodList) {
+        this.Context = Context;
         this.prodList = prodList;
     }
 
@@ -37,18 +59,33 @@ public class Adapter extends BaseAdapter{
         return prodList.get(i).getID();
     }
 
-    private Bitmap getUserImage(String encodedImg) {
-        if(encodedImg!=null&& !encodedImg.equals("null")) {
+    public static Bitmap loadContactPhoto(ContentResolver cr, long id, Context context) {
+        Uri uri = ContentUris.withAppendedId(ContactsContract.Contacts.CONTENT_URI, id);
+        InputStream input = ContactsContract.Contacts.openContactPhotoInputStream(cr, uri);
+        if (input == null) {
+            Resources res = context.getResources();
+            return BitmapFactory.decodeResource(res, R.drawable.icon);
+        }
+        return BitmapFactory.decodeStream(input);
+    }
+
+    public Bitmap getUserImage(String encodedImg)
+    {
+        if(encodedImg!=null && !encodedImg.equals("null")) {
             byte[] bytes = Base64.decode(encodedImg, Base64.DEFAULT);
             return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
         }
-        else {
-            return BitmapFactory.decodeResource(Adapter.this.mContext.getResources(), R.drawable.icon);
-        }
+        else
+            return BitmapFactory.decodeResource(Context.getResources(), R.drawable.icon);
     }
+
+
+
+
+    @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        View v = View.inflate(mContext, R.layout.item_prod, null);
+        @SuppressLint("ViewHolder") View v = View.inflate(Context,R.layout.item_prod,null);
 
         TextView Title = v.findViewById(R.id.tv_Title);
         TextView Count = v.findViewById(R.id.tv_Count);
@@ -58,18 +95,17 @@ public class Adapter extends BaseAdapter{
         Title.setText(prod.getTitle());
         Count.setText(Integer.toString(prod.getCount()));
 
-        Image.setImageBitmap(getUserImage(prod.getImage()));
+       Image.setImageBitmap(getUserImage(prod.getImage()));
 
-        v.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent=new Intent(mContext,update_delete_prod.class);
-                intent.putExtra("Products",prod);
-                mContext.startActivity(intent);
-            }
-        });
+       v.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Intent intent=new Intent(Context,update_delete_prod.class);
+               intent.putExtra("Products",prod);
+               Context.startActivity(intent);
+           }
+       });
         return v;
-
     }
 
 }
