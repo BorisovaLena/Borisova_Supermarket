@@ -41,28 +41,19 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int mm, long l) {
                 if(mm == 0)
                 {
-                    sortTitle();
+                    String str = "SELECT * FROM Products ORDER BY Title";
+                    sort(str);
                 }
                 else
                 {
-                    sortTitle2();
+                    String str = "SELECT * FROM Products ORDER BY Title DESC";
+                    sort(str);
                 }
             }
             @Override
             public void onNothingSelected(AdapterView<?> adapterView) {
             }
          });
-    }
-
-    public void sortTitle()
-    {
-        String str = "SELECT * FROM Products ORDER BY Title";
-        sort(str);
-    }
-    public void sortTitle2()
-    {
-        String str = "SELECT * FROM Products ORDER BY Title DESC";
-        sort(str);
     }
 
     public void GetTextFormSql(View v) {

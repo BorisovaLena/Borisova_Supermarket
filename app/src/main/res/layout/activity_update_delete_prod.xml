@@ -61,10 +61,11 @@
         android:id="@+id/btn_updImage"
         android:layout_width="150dp"
         android:layout_height="48dp"
-        android:layout_marginTop="50dp"
-        android:text="Выбрать фото"
         android:layout_marginLeft="30dp"
+        android:layout_marginTop="50dp"
         android:background="@color/my_color"
+        android:onClick="onClickImage"
+        android:text="Выбрать фото"
         app:layout_constraintStart_toEndOf="@+id/Image_upd"
         app:layout_constraintTop_toBottomOf="@+id/et_Count_upd" />
 

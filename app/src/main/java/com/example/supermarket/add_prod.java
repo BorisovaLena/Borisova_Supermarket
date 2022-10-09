@@ -32,6 +32,21 @@ public class add_prod extends AppCompatActivity {
         Count = findViewById(R.id.et_Count);
         Image = findViewById(R.id.Image);
     }
+
+    public void onClickImage(View view)
+    {
+        try {
+            Intent intentChooser = new Intent();
+            intentChooser.setType("image/*");
+            intentChooser.setAction(Intent.ACTION_GET_CONTENT);
+            startActivityForResult(intentChooser, 1);
+        }
+        catch (Exception ex)
+        {
+            Toast.makeText(this,"Ошибка", Toast.LENGTH_LONG).show();
+        }
+    }
+
     @Override
     protected void onActivityResult(int request, int result, @Nullable Intent data) {
         try {
