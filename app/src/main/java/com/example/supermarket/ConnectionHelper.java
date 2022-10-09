@@ -9,9 +9,7 @@ import java.sql.DriverManager;
 public class ConnectionHelper {
 
     String userName, userPassword, ip, port, dataBase;
-
     @SuppressLint("NewApi")
-
     public Connection connectionClass ()
     {
         ip = "ngknn.ru";
@@ -25,8 +23,8 @@ public class ConnectionHelper {
 
         Connection connection = null;
         String connectionURL = null;
-
-        try{
+        try
+        {
             Class.forName("net.sourceforge.jtds.jdbc.Driver");
             connectionURL = "jdbc:jtds:sqlserver://" + ip + ":" + port + ";" + "databasename=" + dataBase + ";user=" + userName + ";password=" + userPassword + ";";
             connection = DriverManager.getConnection(connectionURL);
@@ -35,8 +33,6 @@ public class ConnectionHelper {
         {
             Log.e ("Error",ex.getMessage());
         }
-
         return connection;
     }
-
 }

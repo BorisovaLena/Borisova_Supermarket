@@ -16,16 +16,12 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import java.io.InputStream;
-import java.util.ArrayList;
 import java.util.List;
 
 public class Adapter extends BaseAdapter{
 
     protected Context Context;
-    String img="";
-    private ArrayList<Product> mListProd;
 
     private OnItemClickListener mListener;
 
@@ -79,9 +75,6 @@ public class Adapter extends BaseAdapter{
             return BitmapFactory.decodeResource(Context.getResources(), R.drawable.icon);
     }
 
-
-
-
     @SuppressLint("SetTextI18n")
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
@@ -107,5 +100,4 @@ public class Adapter extends BaseAdapter{
        });
         return v;
     }
-
 }

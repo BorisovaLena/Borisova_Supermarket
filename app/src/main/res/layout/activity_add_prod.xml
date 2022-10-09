@@ -82,5 +82,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/Image" />
 
+    <android.widget.Button
+        android:id="@+id/btn_addProd_Back"
+        android:layout_width="130dp"
+        android:layout_height="48dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/my_color"
+        android:onClick="onClickBack"
+        android:text="Назад"
+        app:layout_constraintStart_toEndOf="@+id/btn_addProd"
+        app:layout_constraintTop_toBottomOf="@+id/Image" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

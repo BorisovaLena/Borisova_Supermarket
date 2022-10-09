@@ -2,7 +2,6 @@ package com.example.supermarket;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -12,29 +11,23 @@ import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
-
 import java.io.ByteArrayOutputStream;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.util.Base64;
-
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class add_prod extends AppCompatActivity {
 
     EditText Title, Count;
-    TextView status;
     ImageView Image;
     Connection connection;
-    String ConnectionResult = "";
     String img=null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_prod);
-
         Title = findViewById(R.id.et_Title);
         Count = findViewById(R.id.et_Count);
         Image = findViewById(R.id.Image);
@@ -46,11 +39,9 @@ public class add_prod extends AppCompatActivity {
             if (request == 1 && data != null && data.getData() != null) {
                 if (result == RESULT_OK) {
                     Log.d("MyLog", "Image URI : " + data.getData());
-
                     Image.setImageURI(data.getData());
                     Bitmap bitmap = ((BitmapDrawable) Image.getDrawable()).getBitmap();
                     encodeImg(bitmap);
-
                 }
             }
         }
@@ -59,9 +50,7 @@ public class add_prod extends AppCompatActivity {
             Toast.makeText(add_prod.this,"Ошибка", Toast.LENGTH_LONG).show();
         }
     }
-
     public String encodeImg(Bitmap bitmap) {
-
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
         bitmap.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
         byte[] b = byteArrayOutputStream.toByteArray();
@@ -71,17 +60,12 @@ public class add_prod extends AppCompatActivity {
         }
         return "";
     }
-
     public void onClickAdd(View v) {
-
-
         try
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connectionClass();
-
             String str="";
-
             if (connection != null)
             {
                 str = "INSERT INTO Products (Title, Count, Image) VALUES ('"+Title.getText() +"','"+Count.getText() + "','"+ img+"')";
@@ -90,12 +74,17 @@ public class add_prod extends AppCompatActivity {
                 statement.executeUpdate(str);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
-
             }
         }
         catch (Exception ex)
         {
             Log.e("Error", ex.getMessage());
         }
+    }
+
+    public void onClickBack(View v)
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }

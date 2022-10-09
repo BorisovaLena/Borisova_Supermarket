@@ -2,7 +2,6 @@ package com.example.supermarket;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
@@ -13,7 +12,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
-
 import java.io.ByteArrayOutputStream;
 import java.util.Base64;
 import android.graphics.BitmapFactory;
@@ -43,8 +41,6 @@ public class update_delete_prod extends AppCompatActivity {
         Count.setText(Integer.toString(prod.getCount()));
         Image.setImageBitmap(getImgBitmap(prod.getImage()));
         v = findViewById(com.google.android.material.R.id.ghost_view);
-
-
     }
 
     public void onClickImage(View view)
@@ -57,7 +53,7 @@ public class update_delete_prod extends AppCompatActivity {
         }
         catch (Exception ex)
         {
-            Toast.makeText(this,"Что-то пошло не так", Toast.LENGTH_LONG).show();
+            Toast.makeText(this,"Ошибка", Toast.LENGTH_LONG).show();
         }
     }
 
@@ -67,7 +63,6 @@ public class update_delete_prod extends AppCompatActivity {
             if (request == 1 && data != null && data.getData() != null) {
                 if (result == RESULT_OK) {
                     Log.d("MyLog", "Image URI : " + data.getData());
-
                     Image.setImageURI(data.getData());
                     Bitmap bitmap = ((BitmapDrawable) Image.getDrawable()).getBitmap();
                     toString(bitmap);
@@ -93,11 +88,11 @@ public class update_delete_prod extends AppCompatActivity {
 
     private Bitmap getImgBitmap(String encodedImg) {
         if(encodedImg!=null&& !encodedImg.equals("null")) {
-            byte[] bytes = new byte[0];
+            byte[] b = new byte[0];
             if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
-                bytes = Base64.getDecoder().decode(encodedImg);
+                b = Base64.getDecoder().decode(encodedImg);
             }
-            return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            return BitmapFactory.decodeByteArray(b, 0, b.length);
         }
         return BitmapFactory.decodeResource(update_delete_prod.this.getResources(),
                 R.drawable.icon);
@@ -109,19 +104,15 @@ public class update_delete_prod extends AppCompatActivity {
         {
             ConnectionHelper connectionHelper = new ConnectionHelper();
             connection = connectionHelper.connectionClass();
-
             String str="";
-
             if (connection != null)
             {
-
                 str = "UPDATE Products Set Title = '"+Title.getText() +"', Count = '"+Count.getText() + "', Image = '"+img+ "' WHERE ID = "+prod.getID()+"";
                 Statement statement = connection.createStatement();
                 Toast.makeText(this, "Успешное изменение данных!", Toast.LENGTH_LONG).show();
                 statement.executeUpdate(str);
                 Intent intent = new Intent(this, MainActivity.class);
                 startActivity(intent);
-
             }
         }
         catch (Exception ex)
@@ -149,5 +140,11 @@ public class update_delete_prod extends AppCompatActivity {
         {
             Log.e("Error", ex.getMessage());
         }
+    }
+
+    public void onClickBack(View v)
+    {
+        Intent intent = new Intent(this, MainActivity.class);
+        startActivity(intent);
     }
 }
